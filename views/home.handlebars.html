@@ -1,0 +1,15 @@
+<h1>Instrument List</h1>
+<select id="instrument-dropdown">
+  {{#each instruments}}
+  <option value="{{this.id}}">{{this.name}} ({{this.symbol}})</option>
+  {{/each}}
+</select>
+<button onclick="viewInstrument()">View Pivot Points</button>
+
+<script>
+  function viewInstrument() {
+    const dropdown = document.getElementById('instrument-dropdown');
+    const instrumentId = dropdown.value;
+    window.location.href = `/instrument/${instrumentId}`;
+  }
+</script>
