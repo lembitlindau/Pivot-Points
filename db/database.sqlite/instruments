@@ -1,0 +1,7 @@
+-- SQL Script for creating an `instruments` table
+CREATE TABLE instruments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    symbol TEXT NOT NULL,
+    pivot_level REAL
+);
