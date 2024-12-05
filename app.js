@@ -3,9 +3,14 @@ const exphbs = require('express-handlebars');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
 // Initialize app
 const app = express();
 const PORT = 3000;
+
+app.use(express.json());
 
 // Configure Handlebars
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));

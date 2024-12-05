@@ -1,6 +1,4 @@
-
----
-
+```markdown
 # Trading App with Pivot Points
 
 A Node.js application for traders to view and filter a list of financial instruments and see their pivot points. This app is built with Node, Express, Express Handlebars, and SQLite.
@@ -50,7 +48,6 @@ trading-app/
 │   ├── home.handlebars        # Homepage view
 │   └── instrument.handlebars  # Instrument detail view
 ├── app.js                     # Main server file
-├── init-db.js                 # Script to initialize database
 └── README.md                  # Project README
 ```
 
@@ -58,8 +55,8 @@ trading-app/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/trading-app.git
-   cd trading-app
+   git clone https://github.com/lembitlindau/pivot-points.git
+   cd pivot-points
    ```
 
 2. Install dependencies:
@@ -68,10 +65,31 @@ trading-app/
    ```
 
 3. Initialize the database:
-    - Run the setup script to create the database and tables:
-      ```bash
-      node init-db.js
-      ```
+   - Create a file named `init-db.js` with the following content:
+     ```javascript
+     const sqlite3 = require('sqlite3').verbose();
+     const db = new sqlite3.Database('./db/database.sqlite');
+
+     db.serialize(() => {
+         db.run(`CREATE TABLE IF NOT EXISTS instruments (
+             id INTEGER PRIMARY KEY AUTOINCREMENT,
+             name TEXT NOT NULL,
+             symbol TEXT NOT NULL,
+             pivot_level REAL NOT NULL
+         )`);
+     });
+
+     db.close((err) => {
+         if (err) {
+             console.error(err.message);
+         }
+         console.log('Database initialized.');
+     });
+     ```
+   - Run the setup script to create the database and tables:
+     ```bash
+     node init-db.js
+     ```
 
 ## Usage
 
@@ -102,5 +120,4 @@ The `instruments` table is structured as follows:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
+```
