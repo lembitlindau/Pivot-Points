@@ -1,4 +1,3 @@
-```markdown
 # Trading App with Pivot Points
 
 A Node.js application for traders to view and filter a list of financial instruments and see their pivot points. This app is built with Node, Express, Express Handlebars, and SQLite.
@@ -25,31 +24,15 @@ This project aims to help traders quickly access pivot points for financial inst
 - **Express**: Web framework for Node.js
 - **Express Handlebars**: Template engine for rendering views
 - **SQLite**: Lightweight SQL database for data storage
+- **Prisma**: ORM for database interactions
 
 ## Features
 
 - Display a list of instruments with pivot points.
 - Filter the list of instruments for quick access.
 - Dynamically load pivot points for selected instruments.
-
-## Project Structure
-
-```plaintext
-trading-app/
-├── db/
-│   └── database.sqlite        # SQLite database file
-├── models/
-│   └── instrument.js          # Database interactions for instruments
-├── public/
-│   └── styles.css             # CSS styles for the app
-├── views/
-│   ├── layouts/
-│   │   └── main.handlebars    # Main layout template
-│   ├── home.handlebars        # Homepage view
-│   └── instrument.handlebars  # Instrument detail view
-├── app.js                     # Main server file
-└── README.md                  # Project README
-```
+- Simple and intuitive user interface.
+- Lightweight and fast performance.
 
 ## Installation
 
